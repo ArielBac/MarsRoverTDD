@@ -10,6 +10,9 @@
             if (startPosition == "N,0,1" && command == "f")
                 return "N,0,2";
 
+            if (startPosition == "N,0,2" && command == "f")
+                return "N,0,3";
+
             return "N,0,1";
         }
     }
