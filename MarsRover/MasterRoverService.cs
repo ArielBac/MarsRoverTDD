@@ -7,12 +7,11 @@
             var startPositionArray = startPosition.Split(", ");
             var startDirection = startPositionArray[0];
             var startPoint = startPositionArray[1];
+            var x = int.Parse(startPoint[0].ToString());
+            var y = int.Parse(startPoint[2].ToString());
 
             if (command == "f" && startDirection == "N")
             {
-                var x = int.Parse(startPoint[0].ToString());
-                var y = int.Parse(startPoint[2].ToString());
-
                 return $"{startDirection},{x},{y + 1}";
             }
 
