@@ -19,6 +19,7 @@ namespace MarsRover
         //
         [InlineData("W, 20,0", "f", "W,19,0")]
         [InlineData("W, 19,0", "f", "W,18,0")]
+        [InlineData("W, 18,0", "f", "W,17,0")]
 
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {
