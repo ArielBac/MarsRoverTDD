@@ -7,7 +7,7 @@
             var startPositionArray = startPosition.Split(", ");
             var startDirection = startPositionArray[0];
             var startPointStr = startPositionArray[1];
-            var startPoint = new Point(startPointStr);
+            var startPoint = Point.Parse(startPointStr);
 
             if (command == "f" && startDirection == "S")
             {
@@ -33,16 +33,19 @@
 
     public class Point
     {
-        public Point(string coordinate)
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public static Point Parse(string coordinate)
         {
             var startCordinateArray = coordinate.Split(",");
 
-            X = int.Parse(startCordinateArray[0]);
-            Y = int.Parse(startCordinateArray[1]);
+            return new Point()
+            {
+                X = int.Parse(startCordinateArray[0]),
+                Y = int.Parse(startCordinateArray[1])
+            };
         }
-
-        public int X { get; set; }
-        public int Y { get; set; }
     }
 
 }
