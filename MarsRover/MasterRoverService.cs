@@ -19,17 +19,5 @@
 
             return "S,0,10";
         }
-
-        public class Point
-        {
-            public Point(string x, string y)
-            {
-                X = int.Parse(x);
-                Y = int.Parse(x);
-            }
-
-            public int X { get; set; }
-            public int Y { get; set; }
-        }
     }
 }
