@@ -32,4 +32,17 @@
             return "S,0,10";
         }
     }
+
+    public class Point
+    {
+        public Point(string[] coordinate)
+        {
+            X = int.Parse(coordinate[0]);
+            Y = int.Parse(coordinate[1]);
+        }
+
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
 }
