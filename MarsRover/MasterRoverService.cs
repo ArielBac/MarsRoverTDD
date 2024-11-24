@@ -15,6 +15,9 @@
                 if (x == 1 && y == 0)
                     return "E,2,0";
 
+                if (x == 2 && y == 0)
+                    return "E,3,0";
+
                 return "E,1,0";
             }
 
