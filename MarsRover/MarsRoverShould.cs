@@ -11,6 +11,7 @@ namespace MarsRover
         //
         [InlineData("S, 0,10", "f", "S,0,9")]
         [InlineData("S, 0,9", "f", "S,0,8")]
+        [InlineData("S, 0,8", "f", "S,0,7")]
         //
         [InlineData("E, 0,0", "f", "E,1,0")]
         [InlineData("E, 1,0", "f", "E,2,0")]

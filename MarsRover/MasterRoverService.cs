@@ -15,6 +15,9 @@
                 if (startPoint == "0,9")
                     return "S,0,8";
 
+                if (startPoint == "0,8")
+                    return "S,0,7";
+
                 return $"S,0,9";
             }
 
