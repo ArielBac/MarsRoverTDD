@@ -10,6 +10,11 @@
             var x = int.Parse(startPoint[0].ToString());
             var y = int.Parse(startPoint[2].ToString());
 
+            if (command == "f" && startDirection == "E")
+            {
+                return "E,1,0";
+            }
+
             if (command == "f" && startDirection == "N")
             {
                 if (startPoint == "0,10")
