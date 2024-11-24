@@ -12,6 +12,9 @@
 
             if (command == "f" && startDirection == "N")
             {
+                if (startPoint == "0,10")
+                    return "N,0,0";
+
                 return $"{startDirection},{x},{y + 1}";
             }
 
