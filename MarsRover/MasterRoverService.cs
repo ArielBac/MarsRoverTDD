@@ -7,18 +7,13 @@
             var startPositionArray = startPosition.Split(", ");
             var startDirection = startPositionArray[0];
             var startPoint = startPositionArray[1];
-            var x = int.Parse(startPoint[0].ToString());
-            var y = int.Parse(startPoint[2].ToString());
+            var startPointArray = startPoint.Split(",");
+            var x = int.Parse(startPointArray[0]);
+            var y = int.Parse(startPointArray[1]);
 
             if (command == "f" && startDirection == "S")
             {
-                if (startPoint == "0,9")
-                    return "S,0,8";
-
-                if (startPoint == "0,8")
-                    return "S,0,7";
-
-                return $"S,0,9";
+                return $"{startDirection},{x},{y - 1}";
             }
 
             if (command == "f" && startDirection == "E")
