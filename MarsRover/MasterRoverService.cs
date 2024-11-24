@@ -8,14 +8,18 @@
             var startDirection = startPositionArray[0];
             var startPoint = startPositionArray[1];
 
-            if (startPosition == "N, 0,0" && command == "f")
-                return "N,0,1";
+            if (command == "f")
+            {
+                if (startPosition == "N, 0,0")
+                    return "N,0,1";
 
-            if (startPosition == "N, 0,1" && command == "f")
-                return "N,0,2";
+                if (startPosition == "N, 0,1")
+                    return "N,0,2";
 
-            if (startPosition == "N, 0,2" && command == "f")
-                return "N,0,3";
+                if (startPosition == "N, 0,2")
+                    return "N,0,3";
+            }
+
 
             return "S,0,10";
         }
