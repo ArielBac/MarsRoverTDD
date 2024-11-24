@@ -8,18 +8,13 @@
             var startDirection = startPositionArray[0];
             var startPoint = startPositionArray[1];
 
-            if (command == "f")
+            if (command == "f" && startDirection == "N")
             {
-                if (startPosition == "N, 0,0")
-                    return "N,0,1";
+                var x = int.Parse(startPoint[0].ToString());
+                var y = int.Parse(startPoint[2].ToString());
 
-                if (startPosition == "N, 0,1")
-                    return "N,0,2";
-
-                if (startPosition == "N, 0,2")
-                    return "N,0,3";
+                return $"{startDirection},{x},{y + 1}";
             }
-
 
             return "S,0,10";
         }
