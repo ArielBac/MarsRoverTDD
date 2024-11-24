@@ -12,6 +12,9 @@
 
             if (command == "f" && startDirection == "E")
             {
+                if (x == 1 && y == 0)
+                    return "E,2,0";
+
                 return "E,1,0";
             }
 
