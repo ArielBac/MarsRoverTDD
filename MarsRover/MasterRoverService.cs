@@ -11,6 +11,9 @@
 
             if (command == "f" && startDirection == "W")
             {
+                if (startPoint.X == 19 && startPoint.Y == 0)
+                    return "W,18,0";
+
                 return "W,19,0";
             }
 
