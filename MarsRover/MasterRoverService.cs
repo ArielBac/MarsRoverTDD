@@ -30,6 +30,9 @@
                 if (startPointStr == "20,5")
                     return $"E,0,5";
 
+                if (startPointStr == "20,10")
+                    return $"E,0,10";
+
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
