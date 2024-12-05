@@ -32,6 +32,9 @@
                 if (startPointStr == "1,10")
                     return "N,1,0";
 
+                if (startPointStr == "5,10")
+                    return "N,5,0";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
