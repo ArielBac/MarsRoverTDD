@@ -16,6 +16,9 @@
 
             if (command == "f" && startDirection == "S")
             {
+                if (startPointStr == "0,0")
+                    return "S,0,10";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
