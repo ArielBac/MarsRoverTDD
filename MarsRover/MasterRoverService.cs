@@ -26,14 +26,8 @@
 
             if (command == "f" && startDirection == "N")
             {
-                if (startPointStr == "0,10")
-                    return "N,0,0";
-
-                if (startPointStr == "1,10")
-                    return "N,1,0";
-
-                if (startPointStr == "5,10")
-                    return "N,5,0";
+                if (startPoint.Y == 10)
+                    return $"{startDirection},{startPoint.X},0";
 
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
