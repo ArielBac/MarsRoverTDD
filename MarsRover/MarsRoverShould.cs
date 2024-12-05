@@ -29,6 +29,7 @@ namespace MarsRover
         }
 
         [Theory]
+        //
         [InlineData("N, 0,10", "f", "N,0,0")]
         [InlineData("N, 1,10", "f", "N,1,0")]
         [InlineData("N, 5,10", "f", "N,5,0")]
@@ -36,6 +37,8 @@ namespace MarsRover
         [InlineData("S, 0,0", "f", "S,0,10")]
         [InlineData("S, 5,0", "f", "S,5,10")]
         [InlineData("S, 10,0", "f", "S,10,10")]
+        //
+        [InlineData("E, 20,0", "f", "E,0,0")]
         //
         [InlineData("W, 0,0", "lf", "S,0,10")]
         public void ReturnNewPositionWhenEdge(string startPosition, string command, string expectedNewPosition)
