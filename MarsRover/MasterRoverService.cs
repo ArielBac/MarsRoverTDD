@@ -15,7 +15,17 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (IsForward(command) && IsWest(startDirection))
+            if (IsForward(command))
+            {
+                return MoveForward(startPoint, startDirection);
+            }
+
+            return "S,0,10";
+        }
+
+        private static string MoveForward(Point startPoint, string startDirection)
+        {
+            if (IsWest(startDirection))
             {
                 if (startPoint.X == 0)
                     return $"{startDirection},20,{startPoint.Y}";
@@ -23,7 +33,7 @@
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
-            if (IsForward(command) && IsSouth(startDirection))
+            if (IsSouth(startDirection))
             {
                 if (startPoint.Y == 0)
                     return $"{startDirection},{startPoint.X},10";
@@ -31,7 +41,7 @@
                 return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
-            if (IsForward(command) && IsEast(startDirection))
+            if (IsEast(startDirection))
             {
                 if (startPoint.X == 20)
                     return $"{startDirection},0,{startPoint.Y}";
@@ -39,7 +49,7 @@
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
-            if (IsForward(command) && IsNorth(startDirection))
+            if (IsNorth(startDirection))
             {
                 if (startPoint.Y == 10)
                     return $"{startDirection},{startPoint.X},0";
@@ -47,7 +57,7 @@
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
-            return "S,0,10";
+            return string.Empty;
         }
     }
 
