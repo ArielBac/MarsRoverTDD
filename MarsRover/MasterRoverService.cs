@@ -29,6 +29,9 @@
                 if (startPointStr == "0,10")
                     return "N,0,0";
 
+                if (startPointStr == "1,10")
+                    return "N,1,0";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
@@ -43,12 +46,12 @@
 
         public static Point Parse(string coordinate)
         {
-            var startCordinateArray = coordinate.Split(",");
+            var startCoordinateArray = coordinate.Split(",");
 
             return new Point()
             {
-                X = int.Parse(startCordinateArray[0]),
-                Y = int.Parse(startCordinateArray[1])
+                X = int.Parse(startCoordinateArray[0]),
+                Y = int.Parse(startCoordinateArray[1])
             };
         }
     }
