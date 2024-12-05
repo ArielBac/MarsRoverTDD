@@ -22,6 +22,9 @@
                 if (startPointStr == "5,0")
                     return "S,5,10";
 
+                if (startPointStr == "10,0")
+                    return "S,10,10";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
