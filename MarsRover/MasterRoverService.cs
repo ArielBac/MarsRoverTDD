@@ -26,6 +26,8 @@
             {
                 if (startPointStr == "20,0")
                     return $"E,0,0";
+
+                return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
             if (command == "f" && startDirection == "N")
