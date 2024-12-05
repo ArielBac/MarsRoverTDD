@@ -2,6 +2,8 @@
 {
     public static class MasterRoverService
     {
+        private static bool IsForward(string command) => command == "f";
+
         public static string Move(string startPosition, string command)
         {
             var startPositionArray = startPosition.Split(", ");
@@ -9,7 +11,7 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (command == "f" && startDirection == "W")
+            if (IsForward(command) && startDirection == "W")
             {
                 if (startPoint.X == 0)
                     return $"{startDirection},20,{startPoint.Y}";
@@ -17,7 +19,7 @@
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
-            if (command == "f" && startDirection == "S")
+            if (IsForward(command) && startDirection == "S")
             {
                 if (startPoint.Y == 0)
                     return $"{startDirection},{startPoint.X},10";
@@ -25,7 +27,7 @@
                 return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
-            if (command == "f" && startDirection == "E")
+            if (IsForward(command) && startDirection == "E")
             {
                 if (startPoint.X == 20)
                     return $"{startDirection},0,{startPoint.Y}";
@@ -33,7 +35,7 @@
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
-            if (command == "f" && startDirection == "N")
+            if (IsForward(command) && startDirection == "N")
             {
                 if (startPoint.Y == 10)
                     return $"{startDirection},{startPoint.X},0";
