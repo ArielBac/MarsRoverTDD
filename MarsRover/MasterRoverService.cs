@@ -24,14 +24,8 @@
 
             if (command == "f" && startDirection == "E")
             {
-                if (startPointStr == "20,0")
-                    return $"E,0,0";
-
-                if (startPointStr == "20,5")
-                    return $"E,0,5";
-
-                if (startPointStr == "20,10")
-                    return $"E,0,10";
+                if (startPoint.X == 20)
+                    return $"{startDirection},0,{startPoint.Y}";
 
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
