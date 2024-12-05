@@ -14,6 +14,9 @@
                 if (startPointStr == "0,0")
                     return "W,20,0";
 
+                if (startPointStr == "0,5")
+                    return "W,20,5";
+
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
