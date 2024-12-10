@@ -16,7 +16,7 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (IsBackward(command) && startDirection == "W")
+            if (IsBackward(command) && IsWest(startDirection))
             {
                 if (startPoint.X == 20)
                     return $"{startDirection},0,{startPoint.Y}";
@@ -24,7 +24,7 @@
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
-            if (IsBackward(command) && startDirection == "E")
+            if (IsBackward(command) && IsEast(startDirection))
             {
                 if (startPoint.X == 0)
                     return $"{startDirection},20,{startPoint.Y}";
@@ -32,7 +32,7 @@
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
-            if (IsBackward(command) && startDirection == "S")
+            if (IsBackward(command) && IsSouth(startDirection))
             {
                 if (startPoint.Y == 10)
                     return $"{startDirection},{startPoint.X},0";
@@ -40,7 +40,7 @@
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
-            if (IsBackward(command) && startDirection == "N")
+            if (IsBackward(command) && IsNorth(startDirection))
             {
                 if (startPoint.Y == 0)
                     return $"{startDirection},{startPoint.X},10";
