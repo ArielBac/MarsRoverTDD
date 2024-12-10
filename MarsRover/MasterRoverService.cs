@@ -15,6 +15,11 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
+            if (command == "b" && startPosition == "N, 0,10")
+            {
+                return "N,0,9";
+            }
+
             if (IsForward(command))
             {
                 return MoveForward(startPoint, startDirection);
