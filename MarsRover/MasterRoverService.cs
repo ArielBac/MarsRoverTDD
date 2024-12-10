@@ -22,6 +22,9 @@
 
             if (command == "b" && startDirection == "E")
             {
+                if (startPoint.X == 0)
+                    return $"{startDirection},20,{startPoint.Y}";
+
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
