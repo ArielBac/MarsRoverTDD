@@ -25,6 +25,8 @@ namespace MarsRover
         [InlineData("N, 0,10", "b", "N,0,9")]
         [InlineData("N, 0,5", "b", "N,0,4")]
         [InlineData("N, 0,1", "b", "N,0,0")]
+        //
+        [InlineData("S, 0,0", "b", "S,0,1")]
 
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {
