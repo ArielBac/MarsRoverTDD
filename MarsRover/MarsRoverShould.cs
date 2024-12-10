@@ -63,6 +63,8 @@ namespace MarsRover
         [InlineData("W, 0,10", "f", "W,20,10")]
         // ------------ Backward ----------- //
         [InlineData("N, 0,0", "b", "N,0,10")]
+        [InlineData("N, 1,0", "b", "N,1,10")]
+        [InlineData("N, 5,0", "b", "N,5,10")]
         // -------------------------------- //
         [InlineData("W, 0,0", "lf", "S,0,10")]
         public void ReturnNewPositionWhenEdge(string startPosition, string command, string expectedNewPosition)
