@@ -32,6 +32,9 @@
 
             if (command == "b" && startDirection == "N")
             {
+                if (startPoint.Y == 0)
+                    return $"{startDirection},{startPoint.X},10";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
