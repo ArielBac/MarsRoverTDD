@@ -15,14 +15,10 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (command == "b" && startPosition == "S, 0,9")
-                return "S,0,10";
-
-            if (command == "b" && startPosition == "S, 0,5")
-                return "S,0,6";
-
-            if (command == "b" && startPosition == "S, 0,0")
-                return "S,0,1";
+            if (command == "b" && startDirection == "S")
+            {
+                return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
+            }
 
             if (command == "b" && startDirection == "N")
             {
