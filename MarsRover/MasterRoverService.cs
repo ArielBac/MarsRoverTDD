@@ -27,6 +27,9 @@
 
             if (command == "b" && startDirection == "S")
             {
+                if (startPoint.Y == 10)
+                    return $"{startDirection},{startPoint.X},0";
+
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
