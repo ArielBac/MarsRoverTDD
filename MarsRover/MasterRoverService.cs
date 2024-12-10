@@ -16,36 +16,9 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (IsBackward(command) && IsWest(startDirection))
+            if (IsBackward(command))
             {
-                if (startPoint.X == 20)
-                    return $"{startDirection},0,{startPoint.Y}";
-
-                return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
-            }
-
-            if (IsBackward(command) && IsEast(startDirection))
-            {
-                if (startPoint.X == 0)
-                    return $"{startDirection},20,{startPoint.Y}";
-
-                return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
-            }
-
-            if (IsBackward(command) && IsSouth(startDirection))
-            {
-                if (startPoint.Y == 10)
-                    return $"{startDirection},{startPoint.X},0";
-
-                return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
-            }
-
-            if (IsBackward(command) && IsNorth(startDirection))
-            {
-                if (startPoint.Y == 0)
-                    return $"{startDirection},{startPoint.X},10";
-
-                return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
+                return MoveBackward(startPoint, startDirection);
             }
 
             if (IsForward(command))
@@ -88,6 +61,43 @@
                     return $"{startDirection},{startPoint.X},0";
 
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
+            }
+
+            return string.Empty;
+        }
+
+        private static string MoveBackward(Point startPoint, string startDirection)
+        {
+            if (IsWest(startDirection))
+            {
+                if (startPoint.X == 20)
+                    return $"{startDirection},0,{startPoint.Y}";
+
+                return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
+            }
+
+            if (IsEast(startDirection))
+            {
+                if (startPoint.X == 0)
+                    return $"{startDirection},20,{startPoint.Y}";
+
+                return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
+            }
+
+            if (IsSouth(startDirection))
+            {
+                if (startPoint.Y == 10)
+                    return $"{startDirection},{startPoint.X},0";
+
+                return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
+            }
+
+            if (IsNorth(startDirection))
+            {
+                if (startPoint.Y == 0)
+                    return $"{startDirection},{startPoint.X},10";
+
+                return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
             return string.Empty;
