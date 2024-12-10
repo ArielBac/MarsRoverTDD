@@ -3,6 +3,7 @@
     public static class MasterRoverService
     {
         private static bool IsForward(string command) => command == "f";
+        private static bool IsBackward(string command) => command == "b";
         private static bool IsNorth(string direction) => direction == "N";
         private static bool IsSouth(string direction) => direction == "S";
         private static bool IsEast(string direction) => direction == "E";
@@ -15,7 +16,7 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (command == "b" && startDirection == "W")
+            if (IsBackward(command) && startDirection == "W")
             {
                 if (startPoint.X == 20)
                     return $"{startDirection},0,{startPoint.Y}";
@@ -23,7 +24,7 @@
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
-            if (command == "b" && startDirection == "E")
+            if (IsBackward(command) && startDirection == "E")
             {
                 if (startPoint.X == 0)
                     return $"{startDirection},20,{startPoint.Y}";
@@ -31,7 +32,7 @@
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
             }
 
-            if (command == "b" && startDirection == "S")
+            if (IsBackward(command) && startDirection == "S")
             {
                 if (startPoint.Y == 10)
                     return $"{startDirection},{startPoint.X},0";
@@ -39,7 +40,7 @@
                 return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
             }
 
-            if (command == "b" && startDirection == "N")
+            if (IsBackward(command) && startDirection == "N")
             {
                 if (startPoint.Y == 0)
                     return $"{startDirection},{startPoint.X},10";
