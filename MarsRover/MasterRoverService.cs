@@ -17,6 +17,9 @@
 
             if (command == "b" && startDirection == "W")
             {
+                if (startPoint.X == 20)
+                    return $"{startDirection},0,{startPoint.Y}";
+
                 return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
             }
 
