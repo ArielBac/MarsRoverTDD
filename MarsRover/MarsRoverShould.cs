@@ -4,6 +4,7 @@ namespace MarsRover
 {
     public class MarsRoverShould
     {
+        // ------------ Forward ----------- //
         [Theory]
         [InlineData("N, 0,0", "f", "N,0,1")]
         [InlineData("N, 0,1", "f", "N,0,2")]
@@ -20,9 +21,10 @@ namespace MarsRover
         [InlineData("W, 20,0", "f", "W,19,0")]
         [InlineData("W, 19,0", "f", "W,18,0")]
         [InlineData("W, 18,0", "f", "W,17,0")]
-        // ========= //
+        // ------------ Backward ----------- //
         [InlineData("N, 0,10", "b", "N,0,9")]
         [InlineData("N, 0,5", "b", "N,0,4")]
+        [InlineData("N, 0,1", "b", "N,0,0")]
 
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {

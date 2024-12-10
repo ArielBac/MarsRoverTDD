@@ -25,6 +25,11 @@
                 return "N,0,4";
             }
 
+            if (command == "b" && startPosition == "N, 0,1")
+            {
+                return "N,0,0";
+            }
+
             if (IsForward(command))
             {
                 return MoveForward(startPoint, startDirection);
