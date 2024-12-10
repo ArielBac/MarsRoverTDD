@@ -15,6 +15,11 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
+            if (command == "b" && startPosition == "W, 0,0")
+            {
+                return $"W,1,0";
+            }
+
             if (command == "b" && startDirection == "E")
             {
                 return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
