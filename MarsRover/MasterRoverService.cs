@@ -15,9 +15,9 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
-            if (command == "b" && startPosition == "N, 0,10")
+            if (command == "b" && startDirection == "N")
             {
-                return "N,0,9";
+                return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
             }
 
             if (command == "b" && startPosition == "N, 0,5")
