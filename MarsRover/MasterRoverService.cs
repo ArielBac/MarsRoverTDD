@@ -25,6 +25,9 @@
             if (IsEast(startDirection) && command == "lf")
                 return $"N,{startPoint.X},{startPoint.Y + 1}";
 
+            if (IsWest(startDirection) && command == "lf")
+                return $"S,{startPoint.X},{startPoint.Y - 1}";
+
             if (IsBackward(command))
             {
                 return MoveBackward(startPoint, startDirection);
