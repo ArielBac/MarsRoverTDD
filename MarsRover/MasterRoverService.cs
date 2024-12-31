@@ -15,9 +15,9 @@ namespace MarsRover
         public static string Move(string startPosition, string command)
         {
             var startPositionArray = startPosition.Split(", ");
-            var startDirection = startPositionArray[0];
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
+            var direction = startPositionArray[0];
 
             if (startPosition == "W, 0,0" && command == "lf")
                 return "S,0,10";
@@ -25,13 +25,13 @@ namespace MarsRover
             foreach (var c in command)
             {
                 if (IsLeft(c))
-                    startDirection = TurnLeft(startDirection);
+                    direction = TurnLeft(direction);
 
                 if (IsBackward(c))
-                    return MoveBackward(startPoint, startDirection);
+                    return MoveBackward(startPoint, direction);
 
                 if (IsForward(c))
-                    return MoveForward(startPoint, startDirection);
+                    return MoveForward(startPoint, direction);
             }
 
             return string.Empty;
