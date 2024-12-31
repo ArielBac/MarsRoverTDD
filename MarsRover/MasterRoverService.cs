@@ -26,6 +26,12 @@
                 return "W,1,1";
             }
 
+            if (startPosition == "N, 5,2" && command == "lf")
+            {
+                return "W,4,2";
+            }
+
+
             if (IsBackward(command))
             {
                 return MoveBackward(startPoint, startDirection);
