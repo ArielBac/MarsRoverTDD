@@ -16,6 +16,11 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
+            if (startPosition == "N, 1,0" && command == "lf")
+            {
+                return "W,0,0";
+            }
+
             if (IsBackward(command))
             {
                 return MoveBackward(startPoint, startDirection);

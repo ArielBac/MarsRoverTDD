@@ -37,6 +37,8 @@ namespace MarsRover
         [InlineData("W, 0,0", "b", "W,1,0")]
         [InlineData("W, 5,1", "b", "W,6,1")]
         [InlineData("W, 19,2", "b", "W,20,2")]
+        // ------------ Left - Forward ----------- //
+        [InlineData("N, 1,0", "lf", "W,0,0")]
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {
             var result = MasterRoverService.Move(startPosition, command);
