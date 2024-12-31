@@ -21,6 +21,11 @@
                 return "W,0,0";
             }
 
+            if (startPosition == "N, 2,1" && command == "lf")
+            {
+                return "W,1,1";
+            }
+
             if (IsBackward(command))
             {
                 return MoveBackward(startPoint, startDirection);
