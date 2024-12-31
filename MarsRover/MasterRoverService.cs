@@ -1,10 +1,12 @@
-﻿namespace MarsRover
+﻿
+
+namespace MarsRover
 {
     public static class MasterRoverService
     {
-        private static bool IsForward(string command) => command == "f";
-        private static bool IsBackward(string command) => command == "b";
-        private static bool IsLeft(string command) => command == "l";
+        private static bool IsForward(char command) => command == 'f';
+        private static bool IsBackward(char command) => command == 'b';
+        private static bool IsLeft(char command) => command == 'l';
         private static bool IsNorth(string direction) => direction == "N";
         private static bool IsSouth(string direction) => direction == "S";
         private static bool IsEast(string direction) => direction == "E";
@@ -20,29 +22,36 @@
             if (startPosition == "W, 0,0" && command == "lf")
                 return "S,0,10";
 
-            if (IsNorth(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
-                return $"W,{startPoint.X - 1},{startPoint.Y}";
-
-            if (IsSouth(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
-                return $"E,{startPoint.X + 1},{startPoint.Y}";
-
-            if (IsEast(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
-                return $"N,{startPoint.X},{startPoint.Y + 1}";
-
-            if (IsWest(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
-                return $"S,{startPoint.X},{startPoint.Y - 1}";
-
-            if (IsBackward(command))
+            foreach (var c in command)
             {
-                return MoveBackward(startPoint, startDirection);
+                if (IsLeft(c))
+                    startDirection = TurnLeft(startDirection);
+
+                if (IsBackward(c))
+                    return MoveBackward(startPoint, startDirection);
+
+                if (IsForward(c))
+                    return MoveForward(startPoint, startDirection);
             }
 
-            if (IsForward(command))
-            {
-                return MoveForward(startPoint, startDirection);
-            }
+            return string.Empty;
+        }
 
-            return "S,0,10";
+        private static string TurnLeft(string startDirection)
+        {
+            if (IsNorth(startDirection))
+                return "W";
+
+            if (IsSouth(startDirection))
+                return "E";
+
+            if (IsEast(startDirection))
+                return "N";
+
+            if (IsWest(startDirection))
+                return "S";
+
+            return string.Empty;
         }
 
         private static string MoveForward(Point startPoint, string startDirection)
