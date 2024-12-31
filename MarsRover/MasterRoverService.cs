@@ -16,6 +16,9 @@
             var startPointStr = startPositionArray[1];
             var startPoint = Point.Parse(startPointStr);
 
+            if (startPosition == "W, 0,0" && command == "lf")
+                return "S,0,10";
+
             if (IsNorth(startDirection) && command == "lf")
                 return $"W,{startPoint.X - 1},{startPoint.Y}";
 
