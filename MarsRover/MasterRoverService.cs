@@ -4,6 +4,7 @@
     {
         private static bool IsForward(string command) => command == "f";
         private static bool IsBackward(string command) => command == "b";
+        private static bool IsLeft(string command) => command == "l";
         private static bool IsNorth(string direction) => direction == "N";
         private static bool IsSouth(string direction) => direction == "S";
         private static bool IsEast(string direction) => direction == "E";
@@ -19,16 +20,16 @@
             if (startPosition == "W, 0,0" && command == "lf")
                 return "S,0,10";
 
-            if (IsNorth(startDirection) && command == "lf")
+            if (IsNorth(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
                 return $"W,{startPoint.X - 1},{startPoint.Y}";
 
-            if (IsSouth(startDirection) && command == "lf")
+            if (IsSouth(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
                 return $"E,{startPoint.X + 1},{startPoint.Y}";
 
-            if (IsEast(startDirection) && command == "lf")
+            if (IsEast(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
                 return $"N,{startPoint.X},{startPoint.Y + 1}";
 
-            if (IsWest(startDirection) && command == "lf")
+            if (IsWest(startDirection) && IsLeft(command[0].ToString()) && IsForward(command[1].ToString()))
                 return $"S,{startPoint.X},{startPoint.Y - 1}";
 
             if (IsBackward(command))
