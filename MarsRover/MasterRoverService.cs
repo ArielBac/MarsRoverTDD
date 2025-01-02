@@ -17,7 +17,6 @@ namespace MarsRover
         {
             var startPositionArray = startPosition.Split(", ");
             var startPointStr = startPositionArray[1];
-            var startPoint = Point.Parse(startPointStr);
             var direction = startPositionArray[0];
 
             if (startPosition == "W, 0,0" && command == "lf")
@@ -34,6 +33,8 @@ namespace MarsRover
 
             foreach (var c in command)
             {
+                var startPoint = Point.Parse(startPointStr);
+
                 if (IsRight(c))
                     direction = TurnRight(direction);
 
@@ -41,13 +42,13 @@ namespace MarsRover
                     direction = TurnLeft(direction);
 
                 if (IsBackward(c))
-                    return MoveBackward(startPoint, direction);
+                    startPointStr = MoveBackward(startPoint, direction);
 
                 if (IsForward(c))
-                    return MoveForward(startPoint, direction);
+                    startPointStr = MoveForward(startPoint, direction);
             }
 
-            return string.Empty;
+            return $"{direction}, {startPointStr}";
         }
 
         private static string TurnRight(string startDirection)
@@ -89,33 +90,33 @@ namespace MarsRover
             if (IsWest(startDirection))
             {
                 if (startPoint.X == 0)
-                    return $"{startDirection}, 20,{startPoint.Y}";
+                    return $"20,{startPoint.Y}";
 
-                return $"{startDirection}, {startPoint.X - 1},{startPoint.Y}";
+                return $"{startPoint.X - 1},{startPoint.Y}";
             }
 
             if (IsSouth(startDirection))
             {
                 if (startPoint.Y == 0)
-                    return $"{startDirection}, {startPoint.X},10";
+                    return $"{startPoint.X},10";
 
-                return $"{startDirection}, {startPoint.X},{startPoint.Y - 1}";
+                return $"{startPoint.X},{startPoint.Y - 1}";
             }
 
             if (IsEast(startDirection))
             {
                 if (startPoint.X == 20)
-                    return $"{startDirection}, 0,{startPoint.Y}";
+                    return $"0,{startPoint.Y}";
 
-                return $"{startDirection}, {startPoint.X + 1},{startPoint.Y}";
+                return $"{startPoint.X + 1},{startPoint.Y}";
             }
 
             if (IsNorth(startDirection))
             {
                 if (startPoint.Y == 10)
-                    return $"{startDirection}, {startPoint.X},0";
+                    return $"{startPoint.X},0";
 
-                return $"{startDirection}, {startPoint.X},{startPoint.Y + 1}";
+                return $"{startPoint.X},{startPoint.Y + 1}";
             }
 
             return string.Empty;
@@ -126,33 +127,33 @@ namespace MarsRover
             if (IsWest(startDirection))
             {
                 if (startPoint.X == 20)
-                    return $"{startDirection}, 0,{startPoint.Y}";
+                    return $"0,{startPoint.Y}";
 
-                return $"{startDirection}, {startPoint.X + 1},{startPoint.Y}";
+                return $"{startPoint.X + 1},{startPoint.Y}";
             }
 
             if (IsEast(startDirection))
             {
                 if (startPoint.X == 0)
-                    return $"{startDirection}, 20,{startPoint.Y}";
+                    return $"20,{startPoint.Y}";
 
-                return $"{startDirection}, {startPoint.X - 1},{startPoint.Y}";
+                return $"{startPoint.X - 1},{startPoint.Y}";
             }
 
             if (IsSouth(startDirection))
             {
                 if (startPoint.Y == 10)
-                    return $"{startDirection}, {startPoint.X},0";
+                    return $"{startPoint.X},0";
 
-                return $"{startDirection}, {startPoint.X},{startPoint.Y + 1}";
+                return $"{startPoint.X},{startPoint.Y + 1}";
             }
 
             if (IsNorth(startDirection))
             {
                 if (startPoint.Y == 0)
-                    return $"{startDirection}, {startPoint.X},10";
+                    return $"{startPoint.X},10";
 
-                return $"{startDirection}, {startPoint.X},{startPoint.Y - 1}";
+                return $"{startPoint.X},{startPoint.Y - 1}";
             }
 
             return string.Empty;
