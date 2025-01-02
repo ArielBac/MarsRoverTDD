@@ -55,6 +55,8 @@ namespace MarsRover
         [InlineData("W, 5,2", "lf", "S,5,1")]
         // ------------ Left - Backward ----------- //
         [InlineData("N, 1,0", "lb", "W,2,0")]
+        [InlineData("N, 2,1", "lb", "W,3,1")]
+        [InlineData("N, 5,2", "lb", "W,6,2")]
         // ------------ Right - Forward ----------- //
         //TODO:
         // ------------ Right - Backward ----------- //
