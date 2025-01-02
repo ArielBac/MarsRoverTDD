@@ -13,27 +13,27 @@ namespace MarsRover
         private static bool IsEast(string direction) => direction == "E";
         private static bool IsWest(string direction) => direction == "W";
 
-        public static string Move(string startPosition, string command)
+        public static string Move(string position, string command)
         {
-            var startPositionArray = startPosition.Split(", ");
-            var startPointStr = startPositionArray[1];
-            var direction = startPositionArray[0];
+            var positionArray = position.Split(", ");
+            var pointStr = positionArray[1];
+            var direction = positionArray[0];
 
-            if (startPosition == "W, 0,0" && command == "lf")
+            if (position == "W, 0,0" && command == "lf")
                 return "S, 0,10";
 
-            if (startPosition == "N, 1,1" && command == "ff")
+            if (position == "N, 1,1" && command == "ff")
                 return "N, 1,3";
 
-            if (startPosition == "N, 1,1" && command == "fff")
+            if (position == "N, 1,1" && command == "fff")
                 return "N, 1,4";
 
-            if (startPosition == "N, 1,3" && command == "ffff")
+            if (position == "N, 1,3" && command == "ffff")
                 return "N, 1,7";
 
             foreach (var c in command)
             {
-                var startPoint = Point.Parse(startPointStr);
+                var point = Point.Parse(pointStr);
 
                 if (IsRight(c))
                     direction = TurnRight(direction);
@@ -42,118 +42,118 @@ namespace MarsRover
                     direction = TurnLeft(direction);
 
                 if (IsBackward(c))
-                    startPointStr = MoveBackward(startPoint, direction);
+                    pointStr = MoveBackward(point, direction);
 
                 if (IsForward(c))
-                    startPointStr = MoveForward(startPoint, direction);
+                    pointStr = MoveForward(point, direction);
             }
 
-            return $"{direction}, {startPointStr}";
+            return $"{direction}, {pointStr}";
         }
 
-        private static string TurnRight(string startDirection)
+        private static string TurnRight(string direction)
         {
-            if (IsNorth(startDirection))
+            if (IsNorth(direction))
                 return "E";
 
-            if (IsSouth(startDirection))
+            if (IsSouth(direction))
                 return "W";
 
-            if (IsEast(startDirection))
+            if (IsEast(direction))
                 return "S";
 
-            if (IsWest(startDirection))
+            if (IsWest(direction))
                 return "N";
 
             return string.Empty;
         }
 
-        private static string TurnLeft(string startDirection)
+        private static string TurnLeft(string direction)
         {
-            if (IsNorth(startDirection))
+            if (IsNorth(direction))
                 return "W";
 
-            if (IsSouth(startDirection))
+            if (IsSouth(direction))
                 return "E";
 
-            if (IsEast(startDirection))
+            if (IsEast(direction))
                 return "N";
 
-            if (IsWest(startDirection))
+            if (IsWest(direction))
                 return "S";
 
             return string.Empty;
         }
 
-        private static string MoveForward(Point startPoint, string startDirection)
+        private static string MoveForward(Point point, string direction)
         {
-            if (IsWest(startDirection))
+            if (IsWest(direction))
             {
-                if (startPoint.X == 0)
-                    return $"20,{startPoint.Y}";
+                if (point.X == 0)
+                    return $"20,{point.Y}";
 
-                return $"{startPoint.X - 1},{startPoint.Y}";
+                return $"{point.X - 1},{point.Y}";
             }
 
-            if (IsSouth(startDirection))
+            if (IsSouth(direction))
             {
-                if (startPoint.Y == 0)
-                    return $"{startPoint.X},10";
+                if (point.Y == 0)
+                    return $"{point.X},10";
 
-                return $"{startPoint.X},{startPoint.Y - 1}";
+                return $"{point.X},{point.Y - 1}";
             }
 
-            if (IsEast(startDirection))
+            if (IsEast(direction))
             {
-                if (startPoint.X == 20)
-                    return $"0,{startPoint.Y}";
+                if (point.X == 20)
+                    return $"0,{point.Y}";
 
-                return $"{startPoint.X + 1},{startPoint.Y}";
+                return $"{point.X + 1},{point.Y}";
             }
 
-            if (IsNorth(startDirection))
+            if (IsNorth(direction))
             {
-                if (startPoint.Y == 10)
-                    return $"{startPoint.X},0";
+                if (point.Y == 10)
+                    return $"{point.X},0";
 
-                return $"{startPoint.X},{startPoint.Y + 1}";
+                return $"{point.X},{point.Y + 1}";
             }
 
             return string.Empty;
         }
 
-        private static string MoveBackward(Point startPoint, string startDirection)
+        private static string MoveBackward(Point point, string direction)
         {
-            if (IsWest(startDirection))
+            if (IsWest(direction))
             {
-                if (startPoint.X == 20)
-                    return $"0,{startPoint.Y}";
+                if (point.X == 20)
+                    return $"0,{point.Y}";
 
-                return $"{startPoint.X + 1},{startPoint.Y}";
+                return $"{point.X + 1},{point.Y}";
             }
 
-            if (IsEast(startDirection))
+            if (IsEast(direction))
             {
-                if (startPoint.X == 0)
-                    return $"20,{startPoint.Y}";
+                if (point.X == 0)
+                    return $"20,{point.Y}";
 
-                return $"{startPoint.X - 1},{startPoint.Y}";
+                return $"{point.X - 1},{point.Y}";
             }
 
-            if (IsSouth(startDirection))
+            if (IsSouth(direction))
             {
-                if (startPoint.Y == 10)
-                    return $"{startPoint.X},0";
+                if (point.Y == 10)
+                    return $"{point.X},0";
 
-                return $"{startPoint.X},{startPoint.Y + 1}";
+                return $"{point.X},{point.Y + 1}";
             }
 
-            if (IsNorth(startDirection))
+            if (IsNorth(direction))
             {
-                if (startPoint.Y == 0)
-                    return $"{startPoint.X},10";
+                if (point.Y == 0)
+                    return $"{point.X},10";
 
-                return $"{startPoint.X},{startPoint.Y - 1}";
+                return $"{point.X},{point.Y - 1}";
             }
 
             return string.Empty;
@@ -167,12 +167,12 @@ namespace MarsRover
 
         public static Point Parse(string coordinate)
         {
-            var startCoordinateArray = coordinate.Split(",");
+            var coordinateArray = coordinate.Split(",");
 
             return new Point()
             {
-                X = int.Parse(startCoordinateArray[0]),
-                Y = int.Parse(startCoordinateArray[1])
+                X = int.Parse(coordinateArray[0]),
+                Y = int.Parse(coordinateArray[1])
             };
         }
     }
