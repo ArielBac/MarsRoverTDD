@@ -116,6 +116,9 @@ namespace MarsRover
         //
         [InlineData("S, 0,10", "ff", "S, 0,8")]
         [InlineData("S, 0,9", "fff", "S, 0,6")]
+        //                             
+        [InlineData("E, 0,0", "ff", "E, 2,0")]
+        [InlineData("E, 1,0", "fff", "E, 4,0")]
         public void ReturnNewPositionWhenMultipleCommands(string startPosition, string command, string expectedNewPosition)
         {
             var result = MasterRoverService.Move(startPosition, command);
