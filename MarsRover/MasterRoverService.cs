@@ -19,9 +19,6 @@ namespace MarsRover
             var pointStr = positionArray[1];
             var direction = positionArray[0];
 
-            if (position == "W, 0,0" && command == "lf")
-                return "S, 0,10";
-
             foreach (var c in command)
             {
                 var point = Point.Parse(pointStr);
