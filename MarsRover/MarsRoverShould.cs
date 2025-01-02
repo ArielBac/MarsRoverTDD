@@ -87,6 +87,8 @@ namespace MarsRover
         [InlineData("W, 5,2", "rf", "N,5,3")]
         // ------------ Right - Backward ----------- //
         [InlineData("N, 1,1", "rb", "E,0,1")]
+        [InlineData("N, 2,3", "rb", "E,1,3")]
+        [InlineData("N, 6,4", "rb", "E,5,4")]
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {
             var result = MasterRoverService.Move(startPosition, command);
