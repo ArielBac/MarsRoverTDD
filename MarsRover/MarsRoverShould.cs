@@ -111,6 +111,7 @@ namespace MarsRover
         [Theory]
         [InlineData("N, 1,1", "ff", "N,1,3")]
         [InlineData("N, 1,1", "fff", "N,1,4")]
+        [InlineData("N, 1,3", "ffff", "N,1,7")]
         public void ReturnNewPositionWhenMultipleCommands(string startPosition, string command, string expectedNewPosition)
         {
             var result = MasterRoverService.Move(startPosition, command);

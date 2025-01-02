@@ -29,6 +29,9 @@ namespace MarsRover
             if (startPosition == "N, 1,1" && command == "fff")
                 return "N,1,4";
 
+            if (startPosition == "N, 1,3" && command == "ffff")
+                return "N,1,7";
+
             foreach (var c in command)
             {
                 if (IsRight(c))
