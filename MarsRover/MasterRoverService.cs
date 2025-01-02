@@ -7,6 +7,7 @@ namespace MarsRover
         private static bool IsForward(char command) => command == 'f';
         private static bool IsBackward(char command) => command == 'b';
         private static bool IsLeft(char command) => command == 'l';
+        private static bool IsRight(char command) => command == 'r';
         private static bool IsNorth(string direction) => direction == "N";
         private static bool IsSouth(string direction) => direction == "S";
         private static bool IsEast(string direction) => direction == "E";
@@ -22,17 +23,11 @@ namespace MarsRover
             if (startPosition == "W, 0,0" && command == "lf")
                 return "S,0,10";
 
-            if (startPosition == "N, 0,0" && command == "rf")
-                return "E,1,0";
-
-            if (startPosition == "N, 2,3" && command == "rf")
-                return "E,3,3";
-
-            if (startPosition == "N, 6,4" && command == "rf")
-                return "E,7,4";
-
             foreach (var c in command)
             {
+                if (IsRight(c))
+                    direction = TurnRight(direction);
+
                 if (IsLeft(c))
                     direction = TurnLeft(direction);
 
@@ -42,6 +37,23 @@ namespace MarsRover
                 if (IsForward(c))
                     return MoveForward(startPoint, direction);
             }
+
+            return string.Empty;
+        }
+
+        private static string TurnRight(string startDirection)
+        {
+            if (IsNorth(startDirection))
+                return "E";
+
+            if (IsSouth(startDirection))
+                return "W";
+
+            if (IsEast(startDirection))
+                return "S";
+
+            if (IsWest(startDirection))
+                return "N";
 
             return string.Empty;
         }
