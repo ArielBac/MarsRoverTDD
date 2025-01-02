@@ -81,6 +81,10 @@ namespace MarsRover
         [InlineData("E, 1,1", "rf", "S,1,0")]
         [InlineData("E, 2,1", "rf", "S,2,0")]
         [InlineData("E, 5,2", "rf", "S,5,1")]
+        //
+        [InlineData("W, 0,1", "rf", "N,0,2")]
+        [InlineData("W, 2,1", "rf", "N,2,2")]
+        [InlineData("W, 5,2", "rf", "N,5,3")]
         // ------------ Right - Backward ----------- //
         //TODO:
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
