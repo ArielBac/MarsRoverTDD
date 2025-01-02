@@ -21,16 +21,16 @@ namespace MarsRover
             var direction = startPositionArray[0];
 
             if (startPosition == "W, 0,0" && command == "lf")
-                return "S,0,10";
+                return "S, 0,10";
 
             if (startPosition == "N, 1,1" && command == "ff")
-                return "N,1,3";
+                return "N, 1,3";
 
             if (startPosition == "N, 1,1" && command == "fff")
-                return "N,1,4";
+                return "N, 1,4";
 
             if (startPosition == "N, 1,3" && command == "ffff")
-                return "N,1,7";
+                return "N, 1,7";
 
             foreach (var c in command)
             {
@@ -89,33 +89,33 @@ namespace MarsRover
             if (IsWest(startDirection))
             {
                 if (startPoint.X == 0)
-                    return $"{startDirection},20,{startPoint.Y}";
+                    return $"{startDirection}, 20,{startPoint.Y}";
 
-                return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
+                return $"{startDirection}, {startPoint.X - 1},{startPoint.Y}";
             }
 
             if (IsSouth(startDirection))
             {
                 if (startPoint.Y == 0)
-                    return $"{startDirection},{startPoint.X},10";
+                    return $"{startDirection}, {startPoint.X},10";
 
-                return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
+                return $"{startDirection}, {startPoint.X},{startPoint.Y - 1}";
             }
 
             if (IsEast(startDirection))
             {
                 if (startPoint.X == 20)
-                    return $"{startDirection},0,{startPoint.Y}";
+                    return $"{startDirection}, 0,{startPoint.Y}";
 
-                return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
+                return $"{startDirection}, {startPoint.X + 1},{startPoint.Y}";
             }
 
             if (IsNorth(startDirection))
             {
                 if (startPoint.Y == 10)
-                    return $"{startDirection},{startPoint.X},0";
+                    return $"{startDirection}, {startPoint.X},0";
 
-                return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
+                return $"{startDirection}, {startPoint.X},{startPoint.Y + 1}";
             }
 
             return string.Empty;
@@ -126,33 +126,33 @@ namespace MarsRover
             if (IsWest(startDirection))
             {
                 if (startPoint.X == 20)
-                    return $"{startDirection},0,{startPoint.Y}";
+                    return $"{startDirection}, 0,{startPoint.Y}";
 
-                return $"{startDirection},{startPoint.X + 1},{startPoint.Y}";
+                return $"{startDirection}, {startPoint.X + 1},{startPoint.Y}";
             }
 
             if (IsEast(startDirection))
             {
                 if (startPoint.X == 0)
-                    return $"{startDirection},20,{startPoint.Y}";
+                    return $"{startDirection}, 20,{startPoint.Y}";
 
-                return $"{startDirection},{startPoint.X - 1},{startPoint.Y}";
+                return $"{startDirection}, {startPoint.X - 1},{startPoint.Y}";
             }
 
             if (IsSouth(startDirection))
             {
                 if (startPoint.Y == 10)
-                    return $"{startDirection},{startPoint.X},0";
+                    return $"{startDirection}, {startPoint.X},0";
 
-                return $"{startDirection},{startPoint.X},{startPoint.Y + 1}";
+                return $"{startDirection}, {startPoint.X},{startPoint.Y + 1}";
             }
 
             if (IsNorth(startDirection))
             {
                 if (startPoint.Y == 0)
-                    return $"{startDirection},{startPoint.X},10";
+                    return $"{startDirection}, {startPoint.X},10";
 
-                return $"{startDirection},{startPoint.X},{startPoint.Y - 1}";
+                return $"{startDirection}, {startPoint.X},{startPoint.Y - 1}";
             }
 
             return string.Empty;
