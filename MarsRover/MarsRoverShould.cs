@@ -108,6 +108,15 @@ namespace MarsRover
             result.Should().Be(expectedNewPosition);
         }
 
+        [Theory]
+        [InlineData("N, 1,1", "ff", "N,1,3")]
+        public void ReturnNewPositionWhenMultipleCommands(string startPosition, string command, string expectedNewPosition)
+        {
+            var result = MasterRoverService.Move(startPosition, command);
+
+            result.Should().Be(expectedNewPosition);
+        }
+
         // ------------ Forward ----------- //
         [Theory]
         [InlineData("N, 0,10", "f", "N,0,0")]
