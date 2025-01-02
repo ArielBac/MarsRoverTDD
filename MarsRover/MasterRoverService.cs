@@ -22,15 +22,6 @@ namespace MarsRover
             if (position == "W, 0,0" && command == "lf")
                 return "S, 0,10";
 
-            if (position == "N, 1,1" && command == "ff")
-                return "N, 1,3";
-
-            if (position == "N, 1,1" && command == "fff")
-                return "N, 1,4";
-
-            if (position == "N, 1,3" && command == "ffff")
-                return "N, 1,7";
-
             foreach (var c in command)
             {
                 var point = Point.Parse(pointStr);
