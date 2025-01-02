@@ -13,11 +13,11 @@ namespace MarsRover
         private static bool IsEast(string direction) => direction == "E";
         private static bool IsWest(string direction) => direction == "W";
 
-        public static string Move(string position, string command)
+        public static string Move(string startPosition, string command)
         {
-            var positionArray = position.Split(", ");
-            var pointStr = positionArray[1];
-            var direction = positionArray[0];
+            var startPositionArray = startPosition.Split(", ");
+            var pointStr = startPositionArray[1];
+            var direction = startPositionArray[0];
 
             foreach (var c in command)
             {
