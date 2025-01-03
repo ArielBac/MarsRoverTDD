@@ -148,6 +148,7 @@ namespace MarsRover
         [InlineData("W, 5,3", "lllbbb", "N, 5,0")]
         // ------------ Right - Forward ----------- //
         [InlineData("N, 5,5", "rrff", "S, 5,3")]
+        [InlineData("S, 5,5", "rrrfff", "E, 8,5")]
         // Random
         [InlineData("W, 5,3", "lfrrbblf", "W, 4,0")]
         public void ReturnNewPositionWhenMultipleCommands(string startPosition, string command, string expectedNewPosition)
