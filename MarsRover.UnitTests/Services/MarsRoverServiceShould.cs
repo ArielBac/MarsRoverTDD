@@ -1,9 +1,9 @@
 using FluentAssertions;
 using MarsRover.Services;
 
-namespace MarsRover.UnitTests
+namespace MarsRover.UnitTests.Services
 {
-    public class MarsRoverShould
+    public class MarsRoverServiceShould
     {
         // ------------ Forward ----------- //
         [Theory]
