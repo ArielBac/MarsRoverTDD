@@ -1,4 +1,6 @@
-﻿namespace MarsRover.Services
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MarsRover.Services
 {
     public static class MarsRoverService
     {
@@ -13,8 +15,7 @@
 
         public static string Move(string startPosition, string command)
         {
-            if (string.IsNullOrEmpty(startPosition)) throw new ArgumentException("Start position cannot be null or empty.");
-            if (string.IsNullOrEmpty(command)) throw new ArgumentException("Command cannot be null or empty.");
+            Validate(startPosition, command);
 
             var startPositionArray = startPosition.Split(", ");
             var pointStr = startPositionArray[1];
@@ -38,6 +39,15 @@
             }
 
             return $"{direction}, {pointStr}";
+        }
+
+        private static void Validate(string startPosition, string command)
+        {
+            if (string.IsNullOrEmpty(startPosition))
+                throw new ArgumentException("Start position cannot be null or empty.");
+
+            if (string.IsNullOrEmpty(command))
+                throw new ArgumentException("Command cannot be null or empty.");
         }
 
         private static string TurnRight(string direction)
