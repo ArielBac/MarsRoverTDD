@@ -14,6 +14,7 @@
         public static string Move(string startPosition, string command)
         {
             if (string.IsNullOrEmpty(startPosition)) throw new ArgumentException("Start position cannot be null or empty.");
+            if (string.IsNullOrEmpty(command)) throw new ArgumentException("Command cannot be null or empty.");
 
             var startPositionArray = startPosition.Split(", ");
             var pointStr = startPositionArray[1];

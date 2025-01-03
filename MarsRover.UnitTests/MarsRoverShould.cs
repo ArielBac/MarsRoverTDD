@@ -195,5 +195,17 @@ namespace MarsRover.UnitTests
                 .Throw<ArgumentException>()
                 .WithMessage("Start position cannot be null or empty.");
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void ThrowExceptionWhenNullOrEmptyCommand(string command)
+        {
+            var result = () => MarsRoverService.Move("N, 0,0", command);
+
+            result.Should()
+                .Throw<ArgumentException>()
+                .WithMessage("Command cannot be null or empty.");
+        }
     }
 }
