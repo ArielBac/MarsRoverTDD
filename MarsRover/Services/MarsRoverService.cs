@@ -17,6 +17,9 @@ namespace MarsRover.Services
         {
             Validate(startPosition, command);
 
+            startPosition = startPosition.ToUpper();
+            command = command.ToLower();
+
             var startPositionArray = startPosition.Split(", ");
             var pointStr = startPositionArray[1];
             var direction = startPositionArray[0];
