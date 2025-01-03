@@ -1,6 +1,7 @@
 using FluentAssertions;
+using MarsRover.Services;
 
-namespace MarsRover
+namespace MarsRover.UnitTests
 {
     public class MarsRoverShould
     {
@@ -85,7 +86,7 @@ namespace MarsRover
         [InlineData("W, 5,2", "rb", "N, 5,1")]
         public void ReturnNewPosition(string startPosition, string command, string expectedNewPosition)
         {
-            var result = MasterRoverService.Move(startPosition, command);
+            var result = MarsRoverService.Move(startPosition, command);
 
             result.Should().Be(expectedNewPosition);
         }
@@ -139,7 +140,7 @@ namespace MarsRover
         [InlineData("W, 5,3", "lfrrbblf", "W, 4,0")]
         public void ReturnNewPositionWhenMultipleCommands(string startPosition, string command, string expectedNewPosition)
         {
-            var result = MasterRoverService.Move(startPosition, command);
+            var result = MarsRoverService.Move(startPosition, command);
 
             result.Should().Be(expectedNewPosition);
         }
@@ -178,7 +179,7 @@ namespace MarsRover
         [InlineData("W, 0,0", "lf", "S, 0,10")]
         public void ReturnNewPositionWhenEdge(string startPosition, string command, string expectedNewPosition)
         {
-            var result = MasterRoverService.Move(startPosition, command);
+            var result = MarsRoverService.Move(startPosition, command);
 
             result.Should().Be(expectedNewPosition);
         }

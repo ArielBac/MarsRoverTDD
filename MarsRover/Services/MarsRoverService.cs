@@ -1,8 +1,6 @@
-﻿
-
-namespace MarsRover
+﻿namespace MarsRover.Services
 {
-    public static class MasterRoverService
+    public static class MarsRoverService
     {
         private static bool IsForward(char command) => command == 'f';
         private static bool IsBackward(char command) => command == 'b';
